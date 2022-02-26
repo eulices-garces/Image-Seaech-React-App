@@ -11,7 +11,7 @@ class App extends Component {
   }
 
   scroll = () => {
-    const elemento = document.querySelector('jumbotron');
+    const elemento = document.querySelector('.jumbotron');
     elemento.scrollIntoView('smooth', 'start');
   }
 
@@ -23,7 +23,7 @@ class App extends Component {
     if(pagina === 1) return null;
     
     // resta uno a la pagina actual
-    pagina--;
+    pagina -= 1;
 
     // agregar el cambio al state
     this.setState({
@@ -41,7 +41,7 @@ class App extends Component {
     let pagina = this.state.pagina;
     
     // sumar uno a la pagina actual
-    pagina++;
+    pagina += 1;
 
     // agregar el cambio al state
     this.setState({
@@ -59,7 +59,7 @@ class App extends Component {
     const pagina = this.state.pagina;
     const url = `https://pixabay.com/api/?key=25873025-5cf3f7010b37b5e3934d73c6f&q=${termino}&per_page=30&page=${pagina}`;
 
-    // console.log(url);
+     console.log(url);
     fetch(url)
       .then(respuesta => respuesta.json() )
       .then(resultado => this.setState({ imagenes: resultado.hits }) )
